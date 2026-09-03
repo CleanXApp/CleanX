@@ -4,13 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CLEANx PC HELPER</title>
+<title>CLEANx PC HELPER — Windows Cleanup & Performance</title>
 
-<meta name="description" content="CLEANx PC HELPER — Windows maintenance and performance utility.">
-<meta name="theme-color" content="#05070d">
+<meta name="description"
+content="CLEANx PC HELPER is a lightweight Windows cleanup and performance utility for Windows 10 and Windows 11.">
+
+<link rel="icon" type="image/png" href="LOGO.png">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   CLEANx PC HELPER
+   Official Website
+   ========================================================= */
 
 * {
     margin: 0;
@@ -23,47 +29,94 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
     background:
-        radial-gradient(circle at 20% 10%, rgba(0,140,255,.14), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(100,40,255,.12), transparent 30%),
+        radial-gradient(circle at 15% 15%, rgba(0, 132, 255, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 40%, rgba(109, 75, 255, 0.13), transparent 38%),
         #05070d;
-    color: #fff;
+
+    color: #ffffff;
     overflow-x: hidden;
 }
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 64px 64px;
+
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+
     pointer-events: none;
-    background:
-        linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
-    background-size: 70px 70px;
-    mask-image: linear-gradient(to bottom, black, transparent);
-    z-index: -1;
+    z-index: -2;
 }
 
-/* ================= NAVBAR ================= */
+body::after {
+    content: "";
+
+    position: fixed;
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 35%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(0, 145, 255, 0.07),
+        transparent 70%
+    );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+    z-index: -3;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
 
-    height: 78px;
+    height: 76px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     padding: 0 7%;
 
-    background: rgba(5,7,13,.72);
+    background: rgba(5, 7, 13, 0.72);
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+
     backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.07);
+
+    z-index: 1000;
 }
 
 .brand {
@@ -71,88 +124,123 @@ body::before {
     align-items: center;
     gap: 12px;
 
-    color: white;
     text-decoration: none;
+    color: white;
+
     font-weight: 800;
-    letter-spacing: -.5px;
+    font-size: 20px;
+
+    letter-spacing: -0.5px;
 }
 
 .brand img {
     width: 40px;
     height: 40px;
+
     object-fit: contain;
-    border-radius: 10px;
-    filter: drop-shadow(0 0 12px rgba(0,150,255,.45));
+
+    filter:
+        drop-shadow(0 0 10px rgba(0, 153, 255, 0.45));
 }
 
 .brand span {
-    font-size: 18px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #45a9ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 34px;
 }
 
 .nav-links a {
-    color: #aeb7c9;
+    color: #9ca5b7;
+
     text-decoration: none;
+
     font-size: 14px;
     font-weight: 600;
-    transition: .25s;
+
+    transition: 0.25s ease;
 }
 
 .nav-links a:hover {
-    color: white;
+    color: #ffffff;
 }
 
 .nav-download {
-    padding: 11px 18px;
-    border-radius: 10px;
+    padding: 11px 20px;
+
+    border-radius: 11px;
 
     color: white !important;
 
-    background: linear-gradient(135deg,#147cff,#5b42ff);
-    box-shadow: 0 0 25px rgba(50,100,255,.2);
+    background:
+        linear-gradient(
+            135deg,
+            #168cff,
+            #5d45ff
+        );
+
+    box-shadow:
+        0 8px 28px rgba(52, 93, 255, 0.25);
+
+    transition: 0.25s ease;
 }
 
 .nav-download:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 35px rgba(50,100,255,.4);
+
+    box-shadow:
+        0 12px 35px rgba(52, 93, 255, 0.4);
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
     min-height: 100vh;
-    padding: 150px 7% 80px;
+
+    padding:
+        150px 7% 80px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(420px, 0.9fr);
+
     gap: 70px;
 
-    position: relative;
+    align-items: center;
+
+    max-width: 1500px;
+
+    margin: auto;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
+.hero-content {
+    animation: heroIn 0.9s ease both;
+}
 
-    width: 500px;
-    height: 500px;
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-    right: -150px;
-    top: 150px;
-
-    background: radial-gradient(circle,
-        rgba(50,100,255,.15),
-        transparent 70%
-    );
-
-    filter: blur(20px);
-    pointer-events: none;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .badge {
@@ -162,322 +250,427 @@ body::before {
 
     padding: 8px 13px;
 
-    border: 1px solid rgba(70,150,255,.25);
-    border-radius: 100px;
+    border: 1px solid rgba(45, 153, 255, 0.35);
 
-    background: rgba(40,100,255,.08);
+    border-radius: 999px;
 
-    color: #79b7ff;
+    background: rgba(17, 108, 190, 0.10);
+
+    color: #67b7ff;
 
     font-size: 12px;
     font-weight: 700;
 
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
-.badge::before {
-    content: "";
+.badge-dot {
     width: 7px;
     height: 7px;
 
     border-radius: 50%;
-    background: #46a8ff;
 
-    box-shadow: 0 0 12px #46a8ff;
+    background: #35a7ff;
+
+    box-shadow:
+        0 0 12px #35a7ff;
 }
 
 .hero h1 {
     font-size: clamp(48px, 6vw, 82px);
-    line-height: .98;
+
+    line-height: 0.98;
+
     letter-spacing: -4px;
 
-    max-width: 750px;
+    max-width: 780px;
+
+    font-weight: 850;
 }
 
-.gradient-text {
-    background: linear-gradient(
-        90deg,
-        #fff,
-        #72baff,
-        #8271ff,
-        #fff
-    );
-
-    background-size: 250% auto;
+.hero h1 .gradient {
+    background:
+        linear-gradient(
+            90deg,
+            #4da7ff,
+            #7865ff,
+            #42b5ff
+        );
 
     -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 200% auto;
 
     animation: gradientMove 5s linear infinite;
 }
 
 @keyframes gradientMove {
     to {
-        background-position: 250% center;
+        background-position: 200% center;
     }
 }
 
-.hero p {
-    margin-top: 25px;
+.hero-description {
+    margin-top: 28px;
 
-    max-width: 610px;
+    max-width: 650px;
 
-    color: #98a2b5;
+    color: #929bae;
 
     font-size: 17px;
+
     line-height: 1.75;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 14px;
-    margin-top: 35px;
+
     flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 32px;
 }
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 9px;
 
-    padding: 15px 23px;
+    padding: 15px 22px;
 
     border-radius: 12px;
 
     text-decoration: none;
 
-    font-size: 14px;
-    font-weight: 700;
+    font-weight: 750;
 
-    transition: .3s;
+    font-size: 14px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border 0.25s ease;
 }
 
 .btn-primary {
     color: white;
 
-    background: linear-gradient(135deg,#147cff,#5d3eff);
+    background:
+        linear-gradient(
+            135deg,
+            #168cff,
+            #6045ff
+        );
 
     box-shadow:
-        0 10px 40px rgba(55,100,255,.2);
+        0 15px 40px rgba(45, 93, 255, 0.25);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 15px 50px rgba(55,100,255,.4);
+        0 20px 50px rgba(45, 93, 255, 0.4);
 }
 
 .btn-secondary {
-    color: #dce5f5;
+    color: #dce4f1;
 
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,0.12);
 
-    background: rgba(255,255,255,.035);
+    background: rgba(255,255,255,0.035);
 }
 
 .btn-secondary:hover {
-    background: rgba(255,255,255,.07);
     transform: translateY(-3px);
+
+    border-color:
+        rgba(80, 164, 255, 0.4);
+
+    background:
+        rgba(80, 164, 255, 0.07);
 }
 
-.compatibility {
+.platforms {
     display: flex;
-    gap: 22px;
 
-    margin-top: 30px;
+    gap: 18px;
 
-    color: #697487;
+    margin-top: 28px;
+
+    color: #657084;
 
     font-size: 12px;
+
+    font-weight: 600;
 }
 
-.compatibility span {
+.platforms span {
     display: flex;
+
     align-items: center;
+
     gap: 6px;
 }
 
-/* ================= SOFTWARE PREVIEW ================= */
+/* =========================================================
+   APP PREVIEW
+   ========================================================= */
 
-.preview-wrap {
-    perspective: 1300px;
+.preview-area {
+    perspective: 1200px;
+
+    animation:
+        previewIn 1s ease 0.15s both;
 }
 
-.software {
-    width: min(550px, 100%);
+@keyframes previewIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            rotateY(-8deg);
+    }
 
-    margin: auto;
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotateY(0);
+    }
+}
 
-    border-radius: 18px;
+.app-preview {
+    width: 100%;
+
+    max-width: 590px;
+
+    margin-left: auto;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.12);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.025)
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
         );
 
-    border: 1px solid rgba(255,255,255,.12);
-
     box-shadow:
-        0 35px 100px rgba(0,0,0,.55),
-        0 0 80px rgba(40,100,255,.12);
+        0 40px 100px rgba(0,0,0,0.55),
+        0 0 90px rgba(65, 74, 255, 0.10);
 
     overflow: hidden;
 
     transform:
-        rotateY(-8deg)
-        rotateX(4deg);
+        rotateY(-4deg)
+        rotateX(2deg);
 
-    transition: transform .5s ease;
+    transition: 0.5s ease;
 }
 
-.software:hover {
+.app-preview:hover {
     transform:
-        rotateY(-2deg)
-        rotateX(1deg)
-        translateY(-8px);
+        rotateY(0deg)
+        rotateX(0deg)
+        translateY(-5px);
+
+    box-shadow:
+        0 50px 110px rgba(0,0,0,0.65),
+        0 0 100px rgba(50, 100, 255, 0.15);
 }
 
 .window-top {
-    height: 48px;
+    height: 44px;
 
     display: flex;
+
     align-items: center;
+    justify-content: center;
 
-    padding: 0 17px;
+    position: relative;
 
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
 
-    background: rgba(0,0,0,.18);
+    color: #788296;
+
+    font-size: 11px;
+
+    font-weight: 700;
 }
 
 .window-dots {
+    position: absolute;
+
+    left: 15px;
+
     display: flex;
+
     gap: 6px;
 }
 
-.window-dots i {
-    width: 9px;
-    height: 9px;
+.window-dots span {
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
-    background: #566071;
+    background: #596171;
 }
 
-.window-title {
-    margin-left: auto;
-    margin-right: auto;
-
-    color: #b5bfd0;
-
-    font-size: 11px;
-    font-weight: 600;
+.app-body {
+    padding: 32px;
 }
 
-.app-content {
-    padding: 27px;
-}
-
-.app-header {
-    text-align: center;
-    margin-bottom: 23px;
-}
-
-.app-header h3 {
-    font-size: 19px;
-}
-
-.app-header p {
-    margin-top: 6px;
-
-    color: #707b90;
-
-    font-size: 11px;
-}
-
-.status {
+.app-title {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
 
-    margin: 17px auto 25px;
+    justify-content: space-between;
 
-    color: #7d8799;
+    align-items: flex-start;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.app-name {
+    font-size: 23px;
+
+    font-weight: 850;
+}
+
+.app-name span {
+    color: #168fff;
+}
+
+.app-subtitle {
+    color: #6e778b;
 
     font-size: 10px;
+
+    margin-top: 5px;
 }
 
-.status-dot {
+.theme-badge {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(40, 153, 255, 0.2);
+
+    background: rgba(23, 115, 200, 0.06);
+
+    color: #56aaff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.theme-dot {
     width: 6px;
     height: 6px;
 
+    background: #168fff;
+
     border-radius: 50%;
 
-    background: #42d392;
-
-    box-shadow: 0 0 10px #42d392;
+    box-shadow: 0 0 10px #168fff;
 }
 
-.operations {
-    display: grid;
-    gap: 9px;
+.operations-title {
+    color: #7d879b;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    margin:
+        22px 0 12px;
 }
 
 .operation {
-    padding: 14px 15px;
+    height: 58px;
 
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
+
+    padding: 0 16px;
+
+    margin-bottom: 8px;
 
     border-radius: 10px;
 
-    border: 1px solid rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,0.055);
 
-    background: rgba(255,255,255,.025);
-
-    color: #d8deea;
+    background:
+        rgba(255,255,255,0.035);
 
     font-size: 11px;
-    font-weight: 600;
 
-    transition: .25s;
+    font-weight: 800;
+
+    color: #e7ebf4;
+
+    transition: 0.25s ease;
 }
 
 .operation:hover {
     transform: translateX(5px);
 
-    border-color: rgba(65,140,255,.3);
+    border-color:
+        rgba(44, 149, 255, 0.3);
 
-    background: rgba(50,110,255,.07);
+    background:
+        rgba(40, 120, 200, 0.08);
 }
 
-.operation span {
-    color: #687388;
-    font-size: 9px;
+.operation-number {
+    color: #168fff;
+
+    margin-right: 8px;
 }
 
 .app-footer {
     display: flex;
+
     justify-content: space-between;
 
-    margin-top: 22px;
+    padding-top: 20px;
 
-    color: #596476;
+    color: #4d5669;
 
     font-size: 9px;
 }
 
-/* ================= FEATURES ================= */
+/* =========================================================
+   SECTION
+   ========================================================= */
 
 .section {
-    padding: 120px 7%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding:
+        120px 7%;
 }
 
 .section-heading {
@@ -485,385 +678,626 @@ body::before {
 
     max-width: 700px;
 
-    margin: 0 auto 65px;
+    margin:
+        0 auto 60px;
 }
 
-.eyebrow {
-    color: #579cff;
+.section-heading .eyebrow {
+    color: #4aa7ff;
 
-    font-size: 12px;
+    text-transform: uppercase;
+
+    font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 2px;
-    text-transform: uppercase;
+
+    margin-bottom: 13px;
 }
 
 .section-heading h2 {
-    margin-top: 14px;
-
-    font-size: clamp(35px,5vw,58px);
+    font-size:
+        clamp(35px, 5vw, 55px);
 
     letter-spacing: -2px;
 }
 
 .section-heading p {
-    margin-top: 18px;
+    margin-top: 17px;
 
-    color: #8994a7;
+    color: #858fa1;
 
     line-height: 1.7;
 }
 
-.features {
-    max-width: 1150px;
+/* =========================================================
+   FEATURES
+   ========================================================= */
 
-    margin: auto;
-
+.features-grid {
     display: grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    gap: 17px;
+    gap: 15px;
 }
 
-.card {
+.feature {
     position: relative;
 
     padding: 30px;
 
-    min-height: 210px;
+    min-height: 230px;
 
-    border: 1px solid rgba(255,255,255,.07);
+    border:
+        1px solid rgba(255,255,255,0.08);
 
-    border-radius: 17px;
+    border-radius: 18px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.015)
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
         );
 
     overflow: hidden;
 
-    transition: .35s;
+    transition: 0.3s ease;
 }
 
-.card::before {
+.feature::before {
     content: "";
 
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
 
     right: -70px;
     top: -70px;
 
-    background: radial-gradient(
-        circle,
-        rgba(70,130,255,.15),
-        transparent 70%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(38, 137, 255, 0.13),
+            transparent 70%
+        );
+
+    transition: 0.3s ease;
 }
 
-.card:hover {
+.feature:hover {
     transform: translateY(-7px);
 
-    border-color: rgba(80,140,255,.25);
+    border-color:
+        rgba(57, 150, 255, 0.25);
 
-    box-shadow: 0 25px 60px rgba(0,0,0,.25);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38, 137, 255, 0.07),
+            rgba(255,255,255,0.02)
+        );
 }
 
-.icon {
-    width: 43px;
-    height: 43px;
+.feature:hover::before {
+    transform: scale(1.4);
+}
 
-    display: grid;
-    place-items: center;
+.feature-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     border-radius: 12px;
 
-    background: rgba(50,120,255,.1);
+    background:
+        rgba(37, 133, 255, 0.09);
 
-    border: 1px solid rgba(70,140,255,.15);
+    border:
+        1px solid rgba(37, 133, 255, 0.18);
 
-    color: #64aaff;
-
-    font-size: 19px;
+    font-size: 20px;
 
     margin-bottom: 22px;
 }
 
-.card h3 {
+.feature h3 {
     font-size: 17px;
+
+    margin-bottom: 10px;
 }
 
-.card p {
-    margin-top: 10px;
+.feature p {
+    color: #7f899b;
 
-    color: #7d8799;
+    line-height: 1.65;
 
     font-size: 13px;
-    line-height: 1.7;
 }
 
-/* ================= CTA ================= */
+/* =========================================================
+   THEME FEATURE
+   ========================================================= */
+
+.theme-section {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.theme-copy h2 {
+    font-size:
+        clamp(35px, 4vw, 52px);
+
+    letter-spacing: -2px;
+
+    line-height: 1.05;
+}
+
+.theme-copy p {
+    margin-top: 20px;
+
+    color: #858fa1;
+
+    line-height: 1.8;
+}
+
+.theme-pills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 25px;
+}
+
+.theme-pill {
+    padding: 9px 13px;
+
+    border-radius: 999px;
+
+    color: #aeb8c9;
+
+    font-size: 11px;
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    background:
+        rgba(255,255,255,0.035);
+}
+
+.color-preview {
+    padding: 30px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    background:
+        #0d1018;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.4);
+}
+
+.color-preview-title {
+    color: #778195;
+
+    font-size: 11px;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+}
+
+.color-row {
+    display: flex;
+
+    gap: 10px;
+}
+
+.color {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        inset 0 0 15px rgba(255,255,255,0.1);
+}
+
+.c1 { background: #168cff; }
+.c2 { background: #7856ff; }
+.c3 { background: #00c6ff; }
+.c4 { background: #00d88a; }
+.c5 { background: #ff4d8d; }
+
+.fake-setting {
+    margin-top: 25px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    color: #dbe2ef;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.fake-button {
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(31, 139, 255, 0.12);
+
+    color: #55aaff;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
 
 .cta {
-    margin: 40px 7% 120px;
+    max-width: 1100px;
 
-    padding: 80px 40px;
+    margin:
+        60px auto 120px;
+
+    padding: 70px 40px;
 
     text-align: center;
 
     border-radius: 25px;
 
-    border: 1px solid rgba(80,140,255,.14);
+    border:
+        1px solid rgba(70, 154, 255, 0.17);
 
     background:
         radial-gradient(
             circle at center,
-            rgba(55,100,255,.13),
+            rgba(42, 108, 255, 0.13),
             transparent 65%
         ),
-        rgba(255,255,255,.025);
+        rgba(255,255,255,0.025);
 
-    position: relative;
-    overflow: hidden;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.35);
 }
 
 .cta h2 {
-    font-size: clamp(35px,5vw,58px);
+    font-size:
+        clamp(35px, 5vw, 58px);
 
     letter-spacing: -2px;
 }
 
 .cta p {
-    margin: 17px auto 30px;
+    max-width: 620px;
 
-    max-width: 570px;
+    margin:
+        18px auto 28px;
 
-    color: #858fa2;
+    color: #858fa1;
 
     line-height: 1.7;
 }
 
-/* ================= FOOTER ================= */
+.version {
+    margin-top: 15px;
+
+    color: #586376;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
-    padding: 35px 7%;
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+
+    padding:
+        35px 7%;
 
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
 
-    border-top: 1px solid rgba(255,255,255,.06);
+    justify-content: space-between;
 
-    color: #596476;
+    color: #596274;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .footer-brand {
     display: flex;
+
     align-items: center;
+
     gap: 9px;
+
+    color: #aeb6c6;
+
+    font-weight: 700;
 }
 
 .footer-brand img {
     width: 25px;
     height: 25px;
+
     object-fit: contain;
 }
 
-/* ================= ANIMATIONS ================= */
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+
+    transform: translateY(25px);
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 .reveal.visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
-.cursor-glow {
-    position: fixed;
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-    width: 280px;
-    height: 280px;
+@media (max-width: 1000px) {
 
-    border-radius: 50%;
+    .hero {
+        grid-template-columns: 1fr;
 
-    pointer-events: none;
+        padding-top: 130px;
+    }
 
-    background: radial-gradient(
-        circle,
-        rgba(50,110,255,.08),
-        transparent 65%
-    );
+    .preview-area {
+        margin-top: 20px;
+    }
 
-    transform: translate(-50%,-50%);
+    .app-preview {
+        margin: auto;
+    }
 
-    z-index: 0;
+    .features-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .theme-section {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* ================= RESPONSIVE ================= */
+@media (max-width: 650px) {
 
-@media(max-width: 900px) {
+    .navbar {
+        padding: 0 5%;
+
+        height: 68px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
 
     .nav-links a:not(.nav-download) {
         display: none;
     }
 
     .hero {
-        grid-template-columns: 1fr;
-
-        padding-top: 130px;
-
-        text-align: center;
-    }
-
-    .hero p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons,
-    .compatibility {
-        justify-content: center;
-    }
-
-    .preview-wrap {
-        margin-top: 20px;
-    }
-
-    .software {
-        transform: none;
-    }
-
-    .features {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media(max-width: 600px) {
-
-    .navbar {
-        padding: 0 5%;
-    }
-
-    .hero,
-    .section {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding:
+            110px 5% 70px;
     }
 
     .hero h1 {
-        letter-spacing: -2px;
+        font-size: 49px;
+
+        letter-spacing: -2.5px;
     }
 
-    .features {
-        grid-template-columns: 1fr;
+    .hero-description {
+        font-size: 15px;
     }
 
-    .compatibility {
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .platforms {
         flex-wrap: wrap;
     }
 
+    .app-body {
+        padding: 22px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding:
+            80px 5%;
+    }
+
     .cta {
-        margin-left: 5%;
-        margin-right: 5%;
-        padding: 60px 25px;
+        margin:
+            20px 5% 80px;
+
+        padding:
+            55px 25px;
     }
 
     footer {
         flex-direction: column;
+
         gap: 15px;
+
+        text-align: center;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- ================= NAVBAR ================= -->
+<!-- =======================================================
+     NAVIGATION
+     ======================================================= -->
 
 <nav class="navbar">
 
     <a href="#" class="brand">
-        <img src="LOGO.png" alt="CLEANx Logo">
+
+        <img
+            src="LOGO.png"
+            alt="CLEANx Logo"
+        >
+
         <span>CLEANx</span>
+
     </a>
 
     <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#themes">
+            Themes
+        </a>
+
+        <a href="#about">
+            About
+        </a>
 
         <a
-            href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
             class="nav-download"
+            href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
         >
             Download
         </a>
+
     </div>
 
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =======================================================
+     HERO
+     ======================================================= -->
 
 <section class="hero">
 
-    <div class="hero-content reveal">
+    <div class="hero-content">
 
         <div class="badge">
-            Windows Maintenance & Performance Utility
+
+            <span class="badge-dot"></span>
+
+            Windows Cleanup & Performance Utility
+
         </div>
 
         <h1>
-            Keep Windows
-            <span class="gradient-text">clean.</span>
-            <br>
-            Keep it performing.
+
+            Clean Windows.<br>
+
+            <span class="gradient">
+                Keep it performing.
+            </span>
+
         </h1>
 
-        <p>
-            CLEANx PC HELPER is a fast and lightweight Windows utility
-            designed to simplify essential maintenance, performance
-            optimization and system cleanup from one place.
+        <p class="hero-description">
+
+            CLEANx PC HELPER is a fast and lightweight
+            Windows utility built to simplify everyday
+            cleanup, maintenance and performance tasks
+            from one place.
+
         </p>
 
         <div class="hero-buttons">
 
             <a
-                href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
                 class="btn btn-primary"
+                href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
             >
-                ↓ &nbsp; Download CLEANx
+                ↓ Download CLEANx
             </a>
 
             <a
-                href="#features"
                 class="btn btn-secondary"
+                href="#features"
             >
                 Explore Features
             </a>
 
         </div>
 
-        <div class="compatibility">
+        <div class="platforms">
 
             <span>● Windows 10</span>
+
             <span>● Windows 11</span>
+
             <span>● 64-bit</span>
 
         </div>
@@ -871,80 +1305,133 @@ footer {
     </div>
 
 
-    <!-- SOFTWARE PREVIEW -->
+    <!-- ===================================================
+         APP PREVIEW
+         =================================================== -->
 
-    <div class="preview-wrap reveal">
+    <div class="preview-area">
 
-        <div class="software" id="software">
+        <div class="app-preview">
 
             <div class="window-top">
 
                 <div class="window-dots">
-                    <i></i>
-                    <i></i>
-                    <i></i>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
                 </div>
 
-                <div class="window-title">
-                    CLEANx PC HELPER
-                </div>
+                CLEANx PC HELPER
 
             </div>
 
-            <div class="app-content">
 
-                <div class="app-header">
+            <div class="app-body">
 
-                    <h3>CLEANx PC HELPER</h3>
+                <div class="app-title">
 
-                    <p>
-                        Windows maintenance and performance utility
-                    </p>
+                    <div>
 
-                </div>
+                        <div class="app-name">
 
-                <div class="status">
+                            CLEANx
+                            <span>PC HELPER</span>
 
-                    <div class="status-dot"></div>
+                        </div>
 
-                    READY
+                        <div class="app-subtitle">
 
-                </div>
+                            Windows cleanup and performance utility
 
-                <div class="operations">
+                        </div>
 
-                    <div class="operation">
-                        WINDOWS MAINTENANCE
-                        <span>RUN</span>
                     </div>
 
-                    <div class="operation">
-                        NVIDIA SHADER CACHE RESET
-                        <span>RUN</span>
-                    </div>
 
-                    <div class="operation">
-                        MAXIMUM PERFORMANCE
-                        <span>RUN</span>
-                    </div>
+                    <div class="theme-badge">
 
-                    <div class="operation">
-                        ONE-CLICK ALL
-                        <span>RUN</span>
-                    </div>
+                        <span class="theme-dot"></span>
 
-                    <div class="operation">
-                        INFORMATION
-                        <span>VIEW</span>
+                        THEME
+
                     </div>
 
                 </div>
+
+
+                <div class="operations-title">
+
+                    OPERATIONS
+
+                </div>
+
+
+                <div class="operation">
+
+                    <span class="operation-number">
+                        1.
+                    </span>
+
+                    WINDOWS CLEANUP
+
+                </div>
+
+
+                <div class="operation">
+
+                    <span class="operation-number">
+                        2.
+                    </span>
+
+                    NVIDIA SHADER CACHE RESET
+
+                </div>
+
+
+                <div class="operation">
+
+                    <span class="operation-number">
+                        3.
+                    </span>
+
+                    MAXIMUM PERFORMANCE
+
+                </div>
+
+
+                <div class="operation">
+
+                    <span class="operation-number">
+                        4.
+                    </span>
+
+                    ONE-CLICK ALL
+
+                </div>
+
+
+                <div class="operation">
+
+                    <span class="operation-number">
+                        5.
+                    </span>
+
+                    INFORMATION
+
+                </div>
+
 
                 <div class="app-footer">
 
-                    <span>CLEANx PC HELPER</span>
+                    <span>
+                        CLEANx PC HELPER
+                    </span>
 
-                    <span>v1.5.9.2</span>
+                    <span>
+                        1.5.9.2
+                    </span>
 
                 </div>
 
@@ -957,9 +1444,14 @@ footer {
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- =======================================================
+     FEATURES
+     ======================================================= -->
 
-<section class="section" id="features">
+<section
+    class="section"
+    id="features"
+>
 
     <div class="section-heading reveal">
 
@@ -968,99 +1460,130 @@ footer {
         </div>
 
         <h2>
-            Essential tools.
-            <span class="gradient-text">One utility.</span>
+            Essential PC maintenance.
+            <br>
+            Made simple.
         </h2>
 
         <p>
-            Everything you need for routine Windows maintenance
-            and performance-focused tasks, accessible from a simple interface.
+            CLEANx puts everyday Windows cleanup and
+            performance operations into one lightweight
+            interface.
         </p>
 
     </div>
 
 
-    <div class="features">
+    <div class="features-grid">
 
-        <div class="card reveal">
 
-            <div class="icon">⚙</div>
+        <div class="feature reveal">
 
-            <h3>Windows Maintenance</h3>
+            <div class="feature-icon">
+                🧹
+            </div>
+
+            <h3>
+                Windows Cleanup
+            </h3>
 
             <p>
-                Perform essential Windows maintenance tasks
-                from a single streamlined operation.
+                Clean temporary Windows and user files,
+                Windows prefetch data, update download
+                cache and perform Windows disk cleanup.
             </p>
 
         </div>
 
 
-        <div class="card reveal">
+        <div class="feature reveal">
 
-            <div class="icon">◈</div>
+            <div class="feature-icon">
+                🎮
+            </div>
 
-            <h3>NVIDIA Shader Cache Reset</h3>
+            <h3>
+                NVIDIA Shader Cache Reset
+            </h3>
 
             <p>
-                Reset NVIDIA shader cache when maintenance
-                or troubleshooting requires a clean cache.
+                Clear NVIDIA shader and DirectX cache
+                data when a fresh shader cache is needed.
             </p>
 
         </div>
 
 
-        <div class="card reveal">
+        <div class="feature reveal">
 
-            <div class="icon">⚡</div>
+            <div class="feature-icon">
+                ⚡
+            </div>
 
-            <h3>Maximum Performance</h3>
+            <h3>
+                Maximum Performance
+            </h3>
 
             <p>
-                Apply the available performance-focused
-                configuration from CLEANx.
+                Quickly apply the available maximum
+                performance operation from one simple
+                interface.
             </p>
 
         </div>
 
 
-        <div class="card reveal">
+        <div class="feature reveal">
 
-            <div class="icon">✦</div>
+            <div class="feature-icon">
+                ✨
+            </div>
 
-            <h3>One-Click All</h3>
+            <h3>
+                One-Click All
+            </h3>
 
             <p>
-                Run the main CLEANx maintenance operations
-                together with one simple action.
+                Run the main CLEANx operations together
+                without having to launch every operation
+                individually.
             </p>
 
         </div>
 
 
-        <div class="card reveal">
+        <div class="feature reveal">
 
-            <div class="icon">ⓘ</div>
+            <div class="feature-icon">
+                ℹ️
+            </div>
 
-            <h3>Information</h3>
+            <h3>
+                System Information
+            </h3>
 
             <p>
-                Quickly access system information through
-                the built-in information section.
+                View useful information and details
+                directly inside CLEANx PC HELPER.
             </p>
 
         </div>
 
 
-        <div class="card reveal">
+        <div class="feature reveal">
 
-            <div class="icon">✓</div>
+            <div class="feature-icon">
+                🎨
+            </div>
 
-            <h3>Simple & Lightweight</h3>
+            <h3>
+                Custom Themes
+            </h3>
 
             <p>
-                A straightforward interface focused on making
-                routine PC maintenance quick and easy.
+                Change the application's interface color
+                using the built-in theme control and make
+                CLEANx look the way you want.
             </p>
 
         </div>
@@ -1070,25 +1593,133 @@ footer {
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =======================================================
+     THEMES
+     ======================================================= -->
 
-<section class="section" id="about">
+<section
+    class="section"
+    id="themes"
+>
+
+    <div class="theme-section">
+
+        <div class="theme-copy reveal">
+
+            <div class="section-heading"
+                 style="text-align:left; margin:0;">
+
+                <div class="eyebrow">
+                    Make it yours
+                </div>
+
+                <h2>
+                    Your PC tool.
+                    <br>
+                    Your style.
+                </h2>
+
+            </div>
+
+            <p>
+
+                CLEANx PC HELPER includes a built-in theme
+                control that lets you change the interface
+                color without changing the way the tool works.
+
+            </p>
+
+
+            <div class="theme-pills">
+
+                <div class="theme-pill">
+                    Custom UI Color
+                </div>
+
+                <div class="theme-pill">
+                    Built-in Theme Control
+                </div>
+
+                <div class="theme-pill">
+                    Same Clean Interface
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="color-preview reveal">
+
+            <div class="color-preview-title">
+
+                CLEANx THEME COLORS
+
+            </div>
+
+
+            <div class="color-row">
+
+                <div class="color c1"></div>
+
+                <div class="color c2"></div>
+
+                <div class="color c3"></div>
+
+                <div class="color c4"></div>
+
+                <div class="color c5"></div>
+
+            </div>
+
+
+            <div class="fake-setting">
+
+                <span>
+                    Interface Accent
+                </span>
+
+                <span class="fake-button">
+                    Customizable
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+     ======================================================= -->
+
+<section
+    class="section"
+    id="about"
+>
 
     <div class="section-heading reveal">
 
         <div class="eyebrow">
-            About CLEANx
+            CLEANx PC HELPER
         </div>
 
         <h2>
-            Built for simple
-            <span class="gradient-text">PC maintenance.</span>
+            Simple tools.
+            <br>
+            No unnecessary clutter.
         </h2>
 
         <p>
-            CLEANx PC HELPER brings commonly used Windows maintenance
-            and performance operations into one easy-to-use utility.
-            No complicated interface. Just the tools you need.
+
+            CLEANx PC HELPER is designed around a simple
+            idea: put useful Windows cleanup and
+            performance operations in one straightforward
+            application.
+
         </p>
 
     </div>
@@ -1096,124 +1727,152 @@ footer {
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- =======================================================
+     DOWNLOAD CTA
+     ======================================================= -->
 
-<section class="cta reveal">
+<div class="cta reveal">
 
     <h2>
-        Ready to clean up your PC?
+        Ready to clean up?
     </h2>
 
     <p>
-        Download CLEANx PC HELPER and keep your Windows
-        maintenance tasks simple.
+
+        Download CLEANx PC HELPER and keep your
+        Windows maintenance routine simple.
+
     </p>
 
     <a
-        href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
         class="btn btn-primary"
+        href="https://github.com/CleanXApp/CleanX/releases/download/v1.5.9.2/CleanX.exe"
     >
-        ↓ &nbsp; Download CLEANx
+        ↓ Download CLEANx PC HELPER
     </a>
 
-</section>
+    <div class="version">
+
+        Version 1.5.9.2 · Windows 10 / Windows 11 · 64-bit
+
+    </div>
+
+</div>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
 
 <footer>
 
     <div class="footer-brand">
 
-        <img src="LOGO.png" alt="CLEANx">
+        <img
+            src="LOGO.png"
+            alt="CLEANx"
+        >
 
-        <span>
-            © 2026 CLEANx PC HELPER
-        </span>
+        CLEANx PC HELPER
 
     </div>
 
-    <span>
-        Windows Maintenance & Performance Utility
-    </span>
+    <div>
+
+        Windows Cleanup & Performance Utility
+
+    </div>
+
+    <div>
+
+        © 2026 CLEANx
+
+    </div>
 
 </footer>
 
 
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
+
 <script>
 
-/* ================= SCROLL REVEAL ================= */
+/* Scroll reveal */
 
-const observer = new IntersectionObserver(
-    entries => {
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+                if (entry.isIntersecting) {
 
-                entry.target.classList.add("visible");
+                    entry.target.classList.add("visible");
 
-            }
+                }
 
-        });
+            });
 
-    },
-    {
-        threshold: 0.12
-    }
-);
+        },
+
+        {
+            threshold: 0.12
+        }
+    );
+
 
 document
     .querySelectorAll(".reveal")
-    .forEach(el => observer.observe(el));
+    .forEach(element => {
 
-
-/* ================= CURSOR GLOW ================= */
-
-const glow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", e => {
-
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-
-});
-
-
-/* ================= 3D SOFTWARE PARALLAX ================= */
-
-const software = document.getElementById("software");
-
-document.addEventListener("mousemove", e => {
-
-    if (window.innerWidth <= 900) return;
-
-    const x = (window.innerWidth / 2 - e.clientX) / 80;
-    const y = (window.innerHeight / 2 - e.clientY) / 100;
-
-    software.style.transform =
-        `rotateY(${-8 + x}deg) rotateX(${4 + y}deg)`;
-
-});
-
-
-/* ================= SMOOTH DOWNLOAD ================= */
-
-document
-    .querySelectorAll('a[href*="releases/download"]')
-    .forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            button.style.transform = "scale(.97)";
-
-            setTimeout(() => {
-                button.style.transform = "";
-            }, 150);
-
-        });
+        observer.observe(element);
 
     });
+
+
+/* Small mouse movement effect on desktop */
+
+const preview =
+    document.querySelector(".app-preview");
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if (window.innerWidth < 1000)
+            return;
+
+        const x =
+            (event.clientX /
+            window.innerWidth -
+            0.5) * 2;
+
+        const y =
+            (event.clientY /
+            window.innerHeight -
+            0.5) * 2;
+
+        preview.style.transform =
+            `rotateY(${x * 3}deg)
+             rotateX(${-y * 2}deg)`;
+
+    }
+);
+
+
+/* Reset preview when mouse leaves */
+
+document.addEventListener(
+    "mouseleave",
+    () => {
+
+        preview.style.transform =
+            "rotateY(-4deg) rotateX(2deg)";
+
+    }
+);
 
 </script>
 
