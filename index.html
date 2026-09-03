@@ -51,13 +51,14 @@ nav{
 .logo{
   display:flex;align-items:center;gap:10px;
   color:#fff;text-decoration:none;
-  font-size:20px;font-weight:850;letter-spacing:-1px;
+  font-size:20px;font-weight:850;letter-spacing:-1px;white-space:nowrap;
 }
 .logo img{
   width:38px;height:38px;display:block;object-fit:contain;
   filter:drop-shadow(0 0 13px rgba(38,151,255,.7));
 }
-.logo .x{color:#58aaff}
+.wordmark{display:inline-flex;align-items:center;gap:0}
+.logo .x{color:#58aaff;margin-left:0}
 .navlinks{display:flex;align-items:center;gap:34px}
 .navlinks a{
   color:#919bad;text-decoration:none;font-size:11px;font-weight:600;
@@ -94,6 +95,9 @@ h1{
   letter-spacing:-3px;
   word-spacing:2px;
   font-weight:900;
+  transform-style:preserve-3d;
+  transform:perspective(900px) translateZ(18px) rotateY(-1deg);
+  transition:transform .18s ease-out;
 }
 .gradient{
   background:linear-gradient(100deg,#168cff,#56d8ff 48%,#f5f8ff 88%);
@@ -165,7 +169,7 @@ h1{
   background:linear-gradient(135deg,rgba(88,176,255,.62),rgba(255,255,255,.07) 45%,rgba(139,82,255,.48));
   box-shadow:32px 45px 100px rgba(0,0,0,.72),0 0 65px rgba(46,121,255,.17);
   transform-style:preserve-3d;
-  transform:rotateY(-8deg) rotateX(4deg) rotateZ(-1deg) translateZ(50px);
+  transform:rotateY(-11deg) rotateX(6deg) rotateZ(-1.2deg) translateZ(80px);
   transition:transform .16s ease-out;
 }
 .app:after{
@@ -318,7 +322,7 @@ footer{
 <nav>
   <a class="logo" href="#">
     <img src="./LOGO.png" alt="CleanX logo">
-    Clean<span class="x">X</span>
+    <span class="wordmark">Clean<span class="x">X</span></span>
   </a>
 
   <div class="navlinks">
@@ -526,12 +530,16 @@ document.addEventListener("mousemove",e=>{
     `translate3d(${x*4}px,${y*3}px,0) rotateX(${-y*1.5}deg) rotateY(${x*1.8}deg)`;
 
   app.style.transform=
-    `rotateY(${-8+x*8}deg) rotateX(${4-y*5}deg) rotateZ(${-1+x*.7}deg) translateZ(50px)`;
+    `rotateY(${-11+x*13}deg) rotateX(${6-y*8}deg) rotateZ(${-1.2+x*1.2}deg) translate3d(${x*10}px,${y*7}px,0) translateZ(${80+x*35}px)`;
+
+  document.querySelector("h1").style.transform=
+    `perspective(900px) translate3d(${x*5}px,${y*3}px,${18+Math.abs(x)*12}px) rotateY(${x*2.2}deg) rotateX(${-y*1.2}deg)`;
 });
 
 document.addEventListener("mouseleave",()=>{
   stage.style.transform="none";
-  app.style.transform="rotateY(-8deg) rotateX(4deg) rotateZ(-1deg) translateZ(50px)";
+  app.style.transform="rotateY(-11deg) rotateX(6deg) rotateZ(-1.2deg) translateZ(80px)";
+  document.querySelector("h1").style.transform="perspective(900px) translateZ(18px) rotateY(-1deg)";
 });
 </script>
 
